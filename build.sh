@@ -1,6 +1,10 @@
 #! /bin/bash
 
-module_list="warp actix axum nginx"
+if [ $# -eq 0 ];then
+    module_list="warp actix axum nginx"
+else
+    module_list=$1
+fi
 
 for module in ${module_list}
   do

@@ -5,5 +5,5 @@ FROM ${NGINX_IMAGE}:${NGINX_VER}
 
 RUN apt-get update && apt-get install -y bc procps numactl
 
-#COPY nginx.conf /usr/local/share/nginx/conf/nginx.conf
+COPY nginx.conf etc/nginx/nginx.conf
 
