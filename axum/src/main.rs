@@ -4,14 +4,13 @@ use axum::{Router, Server};
 
 #[tokio::main]
 async fn main() {
-    let router: Router = Router::new();
 
-    let router: Router = router.route("/", get(|| async {}));
-
-    let router: Router = router.route(
-        "/user/:id",
-        get(|Path(id): Path<u8>| async move { id.to_string() }),
-    );
+    let router: Router = Router::new()
+            .route("/", get(|| async {}))
+            .route(
+                "/user/:id",
+                get(|Path(id): Path<String>| async move { id }),
+            );
 
     let router: Router = router.route("/user", post(|| async {}));
 
